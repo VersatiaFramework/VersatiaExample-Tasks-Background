@@ -1,0 +1,8 @@
+# Extracted into the plugin's data folder on the first start; edit it there and run /versatia reload broadcast.
+auto-broadcast:
+  # A duration such as 30s, 5m or 1h 30m
+  period: 30s
+  lines:
+    - "Tip: edit config.yml and run /versatia reload broadcast"
+    - "Background tasks start by themselves, one tick after the plugin"
+    - "A reload restarts this broadcast with the new period"
