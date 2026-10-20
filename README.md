@@ -1,6 +1,6 @@
 # VersatiaExample-Tasks-Background
 
-A class implementing `BackgroundTask` runs by itself from the tick after the plugin starts, is restarted with the new values by every reload and cancelled when the plugin stops; this one broadcasts the lines of `config.yml` at a period written as a duration.
+A class implementing `BackgroundTask` needs no bean scope: the runtime creates it with its constructor injected, runs it from the tick after the plugin starts, restarts it with the new values at every reload and cancels it when the plugin stops; this one broadcasts the lines of `config.yml` at a period written as a duration and logs through the injected `Logger`.
 
 Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Background tasks](https://versatiaframework.github.io/VersatiaDocs/docs/tasks#background-tasks).
 
@@ -26,8 +26,10 @@ Every player reads the same lines in their chat, one every 30 seconds, in turn.
   `broadcast failed to reload: ...AutoBroadcastTask.period could not be read from config.yml: Value at "auto-broadcast.period" is not a duration such as "30s", "5m" or "1h 30m" (units d, h, m, s, ms): "5 minutes"`,
   the previous values stay and the running broadcast goes on. `5m`, `1h 30m` and the ISO form
   `PT5M` are accepted.
-- Add `@DisableVersatiaFeatures(runBackgroundTasks = true)` to `BackgroundPlugin`: `AutoBroadcastTask`
-  is still created as a bean and its values are still set, but `run` is never called.
+- Add `@DisableVersatiaFeatures(runBackgroundTasks = true)` to `BackgroundPlugin`: the build fails
+  with `AutoBroadcastTask.period cannot be enhanced: AutoBroadcastTask is neither the plugin's main class, an object, a bean nor a class a subclass enhancement creates, ...`,
+  since without the feature nothing creates the task. Put `@LocalBean` on `AutoBroadcastTask` and
+  it builds again: the bean is created and its values are set, but `run` is never called.
 
 ## Building
 
