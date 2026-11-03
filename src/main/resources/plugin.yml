@@ -1,6 +1,6 @@
 name: VersatiaExample-Tasks-Background
 version: '${version}'
-main: com.github.marcoral.versatia.example.background.BackgroundPlugin
+main: dev.versatia.example.background.BackgroundPlugin
 api-version: '1.21'
 author: Versatia
 description: A background task broadcasting configured lines, restarted by every reload.

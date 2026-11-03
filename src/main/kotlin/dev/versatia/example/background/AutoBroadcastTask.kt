@@ -1,11 +1,11 @@
-package com.github.marcoral.versatia.example.background
+package dev.versatia.example.background
 
-import com.github.marcoral.versatia.VersatiaEngine
-import com.github.marcoral.versatia.broadcast
-import com.github.marcoral.versatia.config.Value
-import com.github.marcoral.versatia.task.BackgroundTask
-import com.github.marcoral.versatia.task.every
-import com.github.marcoral.versatia.util.collection.cycle
+import dev.versatia.VersatiaEngine
+import dev.versatia.broadcast
+import dev.versatia.config.Value
+import dev.versatia.task.BackgroundTask
+import dev.versatia.task.every
+import dev.versatia.util.collection.cycle
 import java.util.logging.Logger
 import kotlin.time.Duration.Companion.seconds
 import net.kyori.adventure.text.Component.text

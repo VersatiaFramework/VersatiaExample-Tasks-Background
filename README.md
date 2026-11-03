@@ -2,9 +2,9 @@
 
 A class implementing `BackgroundTask` needs no bean scope: the runtime creates it with its constructor injected, runs it from the tick after the plugin starts, restarts it with the new values at every reload and cancels it when the plugin stops; this one broadcasts the lines of `config.yml` at a period written as a duration and logs through the injected `Logger`.
 
-Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Background tasks](https://versatiaframework.github.io/VersatiaDocs/docs/tasks#background-tasks).
+Part of the [Versatia examples](https://github.com/VersatiaFramework/VersatiaExamples); documentation: [Background tasks](https://versatia.dev/docs/tasks#background-tasks).
 
-**Start with** [`AutoBroadcastTask.kt`](src/main/kotlin/com/github/marcoral/versatia/example/background/AutoBroadcastTask.kt); the configuration is [`resources/config.yml`](src/main/resources/resources/config.yml).
+**Start with** [`AutoBroadcastTask.kt`](src/main/kotlin/dev/versatia/example/background/AutoBroadcastTask.kt); the configuration is [`resources/config.yml`](src/main/resources/resources/config.yml).
 
 ## What the log shows
 
@@ -35,7 +35,7 @@ Every player reads the same lines in their chat, one every 30 seconds, in turn.
 
 Requires JDK 21 and VersatiaAPI and
 VersatiaCatalog, which supplies every version, in your local Maven repository (`./gradlew publishToMavenLocal` in each checkout; see
-[Building the framework](https://versatiaframework.github.io/VersatiaDocs/docs/contributing/building));
+[Building the framework](https://versatia.dev/docs/contributing/building));
 running it requires a Paper 1.21.4 server with VersatiaCore installed, and the
 [CommandAPI](https://commandapi.jorel.dev) 12.x plugin for `/versatia reload`.
 
@@ -48,6 +48,6 @@ To have the JAR copied to your server after every build, copy `local.properties.
 `build/generated/ksp/main/kotlin`; open it to see exactly what the runtime executes.
 
 The Versatia version is `versatiaVersion` in `gradle.properties`; `settings.gradle.kts` imports
-the matching [VersatiaCatalog](https://versatiaframework.github.io/VersatiaDocs/docs/getting-started/installation#versatia-catalog),
+the matching [VersatiaCatalog](https://versatia.dev/docs/getting-started/installation#versatia-catalog),
 so the build script writes `libs.versatia.api` and `alias(libs.plugins.ksp)` instead of version
 numbers.
